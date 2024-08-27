@@ -32,8 +32,8 @@ private String title;
 	
 	private LocalTime quizScheduleTime;	
 	
-	@Column(length = 1)
-	private int status = 0; 
+	@Column
+	private boolean status=true;
 	
 	private int quizMarks;
 	
@@ -42,7 +42,7 @@ private String title;
 	@ManyToOne
 	private Subject subject;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	private Set<Batch> batch = new HashSet<Batch>();
 	
 	public void addBatch(Batch b) {

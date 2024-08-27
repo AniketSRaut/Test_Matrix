@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -21,6 +22,7 @@ import com.app.entity.Role;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,15 +30,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class StudentDto {
 
-	
+	@Email(message = "Invalid email ...")
 	private String email;
 	
+	@Size(min = 8 , max=25 ,message = "Password Length Should be 8 to 25 characters")
 	private String password;
+	
 	
 	private String name;
 	
+	@Size(min = 10 , max=10 ,message = "Phone Number Should 10 digit only")
 	private String phone;
 	
 	private Gender gender;

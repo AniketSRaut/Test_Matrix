@@ -3,8 +3,10 @@ package com.app.entity;
 import java.io.Serializable;
 import javax.persistence.Embeddable;
 
+@SuppressWarnings("serial")
 @Embeddable
 public class StudQuizId implements Serializable {
+	
 	private long quizId;
 	private long studId;
 

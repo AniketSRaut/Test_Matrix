@@ -14,6 +14,7 @@ import org.hibernate.validator.constraints.Length;
 import com.app.entity.Gender;
 import com.app.entity.Role;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +22,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserDto extends BaseDto{
 
 	
@@ -52,24 +54,10 @@ public class UserDto extends BaseDto{
 	
 	@NotNull
 	private Role role;
+	
+	private String imagePath;
 
-	public UserDto(Long id, LocalDateTime createdTime, LocalDateTime updatedTime, boolean isDeleted,
-			@NotEmpty(message = "Email can't be blank...") @Email(message = "Invalid email format...") String email,
-			@NotEmpty(message = "Password can't be empty...") @Length(min = 8, max = 25, message = "Password length must be 8 to 25 characters...") String password,
-			@NotEmpty(message = "Name can't be empty...") String name,
-			@Size(max = 10, min = 10, message = "enter 10 digit mobile number") @Pattern(regexp = "^[0-9]{10}$", message = "enter 10 digit mobile number") String phone,
-			@NotNull Gender gender, @NotEmpty(message = "Address can't be empty...") @Length(max = 250) String address,
-			@NotNull LocalDate dob, @NotNull Role role) {
-		super(id, createdTime, updatedTime, isDeleted);
-		this.email = email;
-		this.password = password;
-		this.name = name;
-		this.phone = phone;
-		this.gender = gender;
-		this.address = address;
-		this.dob = dob;
-		this.role = role;
-	}
+	
 	
 	
 	

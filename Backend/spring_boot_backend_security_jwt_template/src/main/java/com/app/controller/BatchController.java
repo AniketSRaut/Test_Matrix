@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.ReqResNewEditBatchDto;
 import com.app.serviceImpl.BatchServiceImpl;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/batch")
 @Validated
@@ -33,7 +35,7 @@ public class BatchController {
 	
 	@GetMapping("/allBatches")
 	public ResponseEntity<?> getAllBatches(){
-		return ResponseEntity.status(HttpStatus.FOUND).body(batchService.getAllBatches());
+		return ResponseEntity.ok(batchService.getAllBatches());
 	}
 	
 	@GetMapping("/editView/{id}")

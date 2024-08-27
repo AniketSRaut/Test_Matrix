@@ -53,15 +53,17 @@ public class UserEntity extends BaseEntity{
 	private Gender gender;
 	
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String address;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private LocalDate dob;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private Role role;
+	
+	private String imagePath;
 	
 	
 	

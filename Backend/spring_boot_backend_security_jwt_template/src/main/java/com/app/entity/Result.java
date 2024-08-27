@@ -21,6 +21,18 @@ public class Result implements Serializable{
 	    private StudQuizId sqId;
 
 	    private int obtainedMarks=0;
+	    
+	    private int correctQue;
+	    
+	    private int attemptedQue;
+	    
+	    private int wrongQue;
+	    
+	    private int totalQue;
+	    
+	    private int notAttempted;
+	    
+	    
 
 
 	

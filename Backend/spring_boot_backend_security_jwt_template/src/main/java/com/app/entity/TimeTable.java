@@ -1,6 +1,17 @@
 package com.app.entity;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,16 +23,22 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TimeTable extends BaseEntity {
+public class TimeTable{
+	    
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
 
-	private String time;
-	private String monday;
-	private String tuesday;
-	private String wednesday;
-	private String thursday;
-	private String friday;
-	private String saturday;
+	    @Enumerated(EnumType.STRING)
+	    @Column(nullable = false)
+	    private Role role;
+	    
+	    
+	    private LocalDate startDate;
+	    private LocalDate endDate;
 
-	
+	    @ElementCollection(fetch = FetchType.EAGER)
+	    private List<TimeSlot> timeSlot;
+	    
 	
 }

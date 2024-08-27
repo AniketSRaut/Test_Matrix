@@ -12,7 +12,6 @@ import lombok.Setter;
 
 @Entity
 @Getter
-
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +19,7 @@ public class Announcement  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long hoildayId;
-	private String annDesc;
+	private Long announcementId;
+	private String announcementDescription;
 
 }

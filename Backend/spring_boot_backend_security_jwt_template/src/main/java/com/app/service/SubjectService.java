@@ -15,4 +15,6 @@ public interface SubjectService {
 	
 	public ApiResponse deleteSubject(Long id);
 	
+	ApiResponse deleteSubjectSoft(Long id);
+	
 }
